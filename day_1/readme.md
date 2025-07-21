@@ -39,8 +39,6 @@ Once a table is created, we use INSERT INTO to add records to it.
 INSERT INTO students (id, name, age, grade) VALUES
 (1, 'Alice', 20, 'A'),
 (2, 'Bob', 21, 'B');
-🔹 SELECT
-This command is used to fetch data from a table. It can be as simple as selecting all rows, or more specific by selecting columns and applying conditions.
 ```
 
 ### 🔹 `SELECT`
@@ -57,3 +55,28 @@ SELECT * FROM students;
 -- Fetch specific columns
 SELECT name, grade FROM students;
 ```
+
+## ❓ Example Practice Questions
+
+1. Create a table called `books` with columns: `book_id`, `title`, `author`, `published_year`.
+2. Insert at least 3 records into the `books` table.
+3. Write a query to retrieve all book titles and authors from the `books` table.
+
+## 📂 Files Included
+- data.sql – Contains:
+  - Table schema definitions
+  - Sample data insertion
+  - Practice questions in SQL comment format
+- queries.sql – Contains:
+  - Query solutions to today’s practice questions
+  - Explanation of each query
+  - Possible improvements and alternate ways to write the same queries
+
+## 📝 Summary
+Today’s session laid the foundation for working with relational databases. Mastering `CREATE` `TABLE`, `INSERT`, and `SELECT` is essential before delving into more complex operations, such as filtering, joining, or aggregating data. Everything learned today will serve as a building block in the coming days.
+
+---
+
+✅ Stay tuned for Day 2, where I’ll dive into filtering data using `WHERE`, `AND`, `OR`, and `NOT`.
+
+Happy querying! 💻📊
