@@ -68,3 +68,5 @@
 -- 35. Which employees earn a salary between 50,000 and 80,000 inclusive?
 
 -- 🔚 End of Day 2 – Filter Conditions Mastery
+-- Remember: Focus on writing the SQL statements yourself based on this structure.
+-- Tomorrow, we’ll build on this with filtering, conditions, and comparisons using WHERE, AND, OR, etc.
