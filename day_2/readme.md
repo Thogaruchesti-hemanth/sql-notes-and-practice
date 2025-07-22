@@ -5,10 +5,7 @@ Today’s focus was on mastering one of the most important components of SQL: th
 
 ---
 
-## ✅ Day Number
-**Day 2**
-
----
+## ✅ Day 2
 
 ## 📚 Main Topics Covered
 
@@ -98,4 +95,3 @@ You can find the full code and exercises for Day 2 in the [`Day_2/`](./) folder.
 ---
 
 🚀 Happy Querying!  
-— *Sai Hemanth*
