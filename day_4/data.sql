@@ -1,0 +1,97 @@
+-- 📘 Day 4: ORDER BY, LIMIT, OFFSET
+-- ----------------------------------------
+-- Context: Employees in a company and their salary records
+-- Today, we are exploring how to sort data (`ORDER BY`), control the number of returned rows (`LIMIT`),
+-- and skip specific records (`OFFSET`). These techniques are essential for building reports,
+-- pagination systems, and ranking lists.
+
+-- 👇 Below is the structure and sample data for two tables:
+-- 1. employees
+-- 2. salaries
+
+-- ===================================================
+-- Table: employees
+-- ===================================================
+-- | emp_id | name        | department     | hire_date  |
+-- |--------|-------------|----------------|------------|
+-- | 1      | Alice Smith | Engineering    | 2019-03-10 |
+-- | 2      | Bob Jones   | Marketing      | 2020-06-15 |
+-- | 3      | Carol White | HR             | 2018-01-25 |
+-- | 4      | David Black | Engineering    | 2021-10-01 |
+-- | 5      | Emma Green  | Sales          | 2019-12-05 |
+-- | 6      | Frank Brown | Marketing      | 2022-02-17 |
+-- | 7      | Grace Lewis | Engineering    | 2020-08-22 |
+-- | 8      | Henry Adams | HR             | 2023-04-30 |
+-- | 9      | Irene Scott | Sales          | 2021-05-20 |
+-- | 10     | Jack Turner | Sales          | 2022-11-03 |
+
+-- ===================================================
+-- Table: salaries
+-- ===================================================
+-- | salary_id | emp_id | amount  | effective_date |
+-- |-----------|--------|---------|----------------|
+-- | 101       | 1      | 80000   | 2023-01-01     |
+-- | 102       | 2      | 62000   | 2023-01-01     |
+-- | 103       | 3      | 57000   | 2023-01-01     |
+-- | 104       | 4      | 75000   | 2023-01-01     |
+-- | 105       | 5      | 68000   | 2023-01-01     |
+-- | 106       | 6      | 64000   | 2023-01-01     |
+-- | 107       | 7      | 77000   | 2023-01-01     |
+-- | 108       | 8      | 55000   | 2023-01-01     |
+-- | 109       | 9      | 66000   | 2023-01-01     |
+-- | 110       | 10     | 60000   | 2023-01-01     |
+
+-- 📝 Instructions:
+-- Write SQL statements manually for:
+-- - Creating the above tables
+-- - Inserting the sample data
+-- - Practicing queries using ORDER BY, LIMIT, and OFFSET
+
+-- 📚 PRACTICE QUESTIONS (35):
+-- ----------------------------
+
+-- 🔹 ORDER BY (Q1–Q15)
+-- 1. List all employees sorted by name alphabetically.
+-- 2. List all employees sorted by department name in ascending order.
+-- 3. Show all salary records ordered by amount from highest to lowest.
+-- 4. Display employees ordered by hire date from the most recent to the oldest.
+-- 5. Sort employees by department (A–Z), then by name (A–Z) within each department.
+-- 6. Sort employees by hire date and show only their names and hire dates.
+-- 7. Show employee names in reverse alphabetical order.
+-- 8. List salaries in ascending order of amount, and show associated emp_id.
+-- 9. Retrieve employee names ordered by the length of their names (shortest to longest).
+-- 10. Order employees by department descending, then hire date ascending.
+-- 11. Display employee records sorted by the number of characters in department name.
+-- 12. Show the employee(s) with the earliest hire date.
+-- 13. List employees from the ‘Engineering’ department, sorted by hire_date.
+-- 14. Display all salary records ordered by effective_date (newest first).
+-- 15. Sort the list of employee names and departments by department then name.
+
+-- 🔹 LIMIT (Q16–Q25)
+-- 16. Retrieve only the first 5 employees.
+-- 17. Display the top 3 highest-paid employees using LIMIT.
+-- 18. Get the first 4 salaries sorted by amount ascending.
+-- 19. List the top 2 most recently hired employees.
+-- 20. Show the names of the first 3 employees in alphabetical order.
+-- 21. Retrieve only one row from the employees table.
+-- 22. Display the latest 5 hires based on hire_date.
+-- 23. Show top 5 employees with the lowest salaries.
+-- 24. List the departments of the first 6 employees alphabetically.
+-- 25. Limit the result to 7 employees, sorted by name.
+
+-- 🔹 OFFSET (Q26–Q35)
+-- 26. Skip the first 3 employees and show the next 5 (ordered by hire_date).
+-- 27. Show employees ranked 6th to 10th by salary amount (highest to lowest).
+-- 28. Display the 4th employee based on alphabetical order of names.
+-- 29. Show the 6th to 10th most recently hired employees.
+-- 30. Skip the first 2 salary records and show the next 4 (ordered by amount).
+-- 31. Retrieve employees ranked from 3rd to 7th by salary (descending).
+-- 32. Show only the 10th record from the employees table based on hire date.
+-- 33. Display employee names from position 5 to 8 alphabetically.
+-- 34. Retrieve 5 salaries starting from the 3rd highest (using OFFSET).
+-- 35. Get 3 employees from Engineering, skipping the first 2 (ordered by name).
+
+-- ✅ End of Day 4 Practice
+-- Today’s focus was all about sorting, limiting, and paginating data efficiently.
+-- These are critical for building real-world applications such as dashboards, reports, and APIs.
+-- Next: Master `UPDATE` and `DELETE` operations to modify existing records.
