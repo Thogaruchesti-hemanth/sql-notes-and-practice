@@ -83,7 +83,7 @@ SELECT * FROM orders WHERE delivery_date IS NULL;
 ## 💡 Tips & Gotchas
 - Use `IN` for clean, readable multi-value conditions.
 - `BETWEEN` is inclusive; consider boundary values.
-- LIKE patterns are case-sensitive in most databases unless configured otherwise.
+- `LIKE` patterns are case-sensitive in most databases unless configured otherwise.
 - Always use `IS NULL` or `IS NOT NULL` when dealing with missing values.
 - `NULL` never behaves like a regular value – it’s "unknown", not zero or empty.
 
