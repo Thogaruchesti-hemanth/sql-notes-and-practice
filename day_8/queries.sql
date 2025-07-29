@@ -43,10 +43,32 @@ INSERT INTO purchases (purchase_id, customer_id, item, category, amount, purchas
 ('P015', 101, 'Mobile Phone', 'Electronics', 15000.00, '2023-06-21');
 
 
-SELECT customer_id, count(amount) AS Total_amount FROM purchases GROUP BY customer_id;
+-- SELECT c.name AS Customer_name, SUM(amount) AS Total_amount FROM Customers c JOIN purchases p ON c.customer_id = p.customer_id GROUP BY p.customer_id;
 
-SELECT count(*) AS no_of_purchases FROM purchases GROUP BY customer_id;
+-- SELECT c.name, COUNT(*) AS No_of_purchases FROM purchases p JOIN Customers c ON p.customer_id = c.customer_id GROUP BY p.customer_id;
 
-SELECT sum(amount) AS total_amount_spent FROM purhcases GROUP BY city;
+-- SELECT c.city, SUM(amount) as Total_amount FROM Customers c JOIN purchases p ON c.customer_id = p.customer_id GROUP BY c.city; 
 
+-- SELECT c.city, COUNT(p.customer_id) as No_of_customers FROM customers c JOIN purchases p ON c.customer_id = p.customer_id GROUP BY p.customer_id;
 
+-- SELECT catergory , SUM(amount) AS Total_amount FROM purchases GROUP BY catergory;
+
+-- SELECT catergory ,AVG(amount) AS average_amount FROM purchases GROUP BY catergory;
+
+-- SELECT COUNT(DISTINCT customer_id) AS no_of_customers FROM Purchases GROUP BY catergory;
+
+-- SELECT customer_id ,SUM(amount) AS total_amount FROM purchases WHERE catergory = 'Electornics' GROUP BY customer_id;
+
+-- SELECT 
+--   DATE_FORMAT(purchase_date, '%Y-%m') AS purchase_month,
+--   COUNT(*) AS total_purchases
+-- FROM 
+--   purchases
+-- GROUP BY 
+--   purchase_month
+-- ORDER BY 
+--   purchase_month;
+
+-- SELECT catergory, Count(item) AS no_of_items FROM purchases GROUP BY catergory;
+
+-- SELECT customer_id FROM purchases GROUP BY customer_id HAVING COUNT(amount)>20000;
