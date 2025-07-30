@@ -72,3 +72,13 @@ INSERT INTO purchases (purchase_id, customer_id, item, category, amount, purchas
 -- SELECT catergory, Count(item) AS no_of_items FROM purchases GROUP BY catergory;
 
 -- SELECT customer_id FROM purchases GROUP BY customer_id HAVING COUNT(amount)>20000;
+
+SELECT c.city FROM customers c JOIN purchases p ON c.customer_id = p.customer_id GROUP by p.customer_id HAVAING COUNT(customer_id)>1;
+
+SELECT catergory FROM purchases WHERE COUNT(amount)>10000 GROUP BY catergory;
+
+SELECT customer_id FROM purchases GROUP BY customer_id HAVING COUNT(customer_id)>2;
+
+SELECT customer_id FROM purchases WEHRE catergory = 'Clothing' AND amount >5000;
+
+SELECT customer_id FROM puchases WHERE GROUP BY 
