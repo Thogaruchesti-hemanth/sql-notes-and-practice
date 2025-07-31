@@ -39,11 +39,21 @@ INSERT INTO departments (dept_id, dept_name, manager, location) VALUES
 (4, 'Marketing', 'Sunita Rao', 'Pune');
 
 
+SELECT e.emp_id,e.name,e.department_id,d.dept_name,e.designation,e.salary,e.join_date FROM employees e INNER JOIN  departments d ON e.department_id = d.dept_id;
 
+SELECT e.name,d.dept_name, d.manager FROM employees e WHERE INNER JOIN departments d ON e.department_id =d.dept_id;
 
+SELECT e.name,e.salary,d.location FROM employees e WHERE INNER JOIN departments d ON e.department_id =d.dept_id;
 
+SELECT name FROM employees WHERE department_id != null;
 
+SELECT d.dept_name FROM departments INNER JOIN employees e ON e.department_id = d.dept_id GROUP BY d.dept_id HAVING COUNT(*)>1;
 
+SELECT d.dept_name , COUNT(*) total_no_of_people FROM Departments d JOIN employees e ON e.department_id = d.dept_id GROUP by e.dept_id;
+
+SELECT e.name FROM employees e JOIN departments d ON e.department_id = d.dept_id WHERE d.dept_name ='Engineering';
+
+SELECT d.dept_name, e.name FROM employees e JOIN on department d ON 
 
 
 
