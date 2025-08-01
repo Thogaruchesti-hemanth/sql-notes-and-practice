@@ -93,7 +93,7 @@ Welcome to **`sql-notes-and-practice`** — a complete, beginner-to-advanced SQL
 sql-notes-and-practice/
 ├── day1/
 │   ├── README.md        # Concepts summary
-│   ├── data.sql         # Table schema + sample data
+│   ├── data.sql         # Table schema + practice questions
 │   └── queries.sql      # Solutions with comments
 ├── day2/
 │   └── ...
