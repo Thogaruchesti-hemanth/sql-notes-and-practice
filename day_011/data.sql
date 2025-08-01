@@ -1,8 +1,27 @@
--- 📘 Day 11: FULL OUTER JOIN
--- --------------------------
+-- 📘 Day 11: FULL OUTER JOIN (Simulated in MySQL)
+-- -----------------------------------------------
 -- Context: Company system managing employees and projects.
--- Today’s practice focuses on `FULL OUTER JOIN` — combining rows from two tables
+-- Today’s practice focuses on the concept of `FULL OUTER JOIN` — combining rows from two tables
 -- whether or not they have matching values in the joined column.
+
+-- ⚠️ Note:
+-- MySQL does NOT support `FULL OUTER JOIN` directly.
+-- We can simulate it by combining a `LEFT JOIN` and a `RIGHT JOIN` using `UNION` or `UNION ALL`.
+
+-- 🔹 FULL OUTER JOIN Simulation in MySQL:
+-- Using UNION (removes duplicates):
+-- SELECT ... FROM employees e
+-- LEFT JOIN projects p ON e.emp_id = p.assigned_to
+-- UNION
+-- SELECT ... FROM employees e
+-- RIGHT JOIN projects p ON e.emp_id = p.assigned_to;
+
+-- Using UNION ALL (keeps duplicates, faster):
+-- SELECT ... FROM employees e
+-- LEFT JOIN projects p ON e.emp_id = p.assigned_to
+-- UNION ALL
+-- SELECT ... FROM employees e
+-- RIGHT JOIN projects p ON e.emp_id = p.assigned_to;
 
 -- 👇 Below is the structure and sample data for two tables:
 -- 1. employees
@@ -41,7 +60,7 @@
 -- - Write SQL statements manually for:
 --   - Creating the above tables (`CREATE TABLE`)
 --   - Inserting the above data (`INSERT INTO`)
--- - Practice `FULL OUTER JOIN` scenarios using the below questions.
+-- - Practice FULL OUTER JOIN (simulation) scenarios using the below questions.
 
 -- 📚 PRACTICE QUESTIONS (35):
 -- ---------------------------
@@ -89,9 +108,13 @@
 -- 34. Show employees with no assigned project or assigned to a project that doesn't exist.
 -- 35. Generate a report combining all employee-project data sorted by employee name.
 
+
 -- ✅ End of Day 11 Practice
 -- Remember: `FULL OUTER JOIN` is useful when you want to include **all rows** from both tables,
--- even if there is no match between them. Use `COALESCE` or `CASE` to handle NULLs for better readability.
+-- even if there is no match between them.
+-- In MySQL, simulate it using:
+--    LEFT JOIN + RIGHT JOIN + UNION (or UNION ALL)
+-- Use `COALESCE` or `CASE` to handle NULLs for better readability.
 
 -- 🔮 Tomorrow’s Topic: SELF JOIN
 -- We will learn how to join a table with itself to represent relationships like managers and subordinates.
