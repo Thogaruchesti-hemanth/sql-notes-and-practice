@@ -166,7 +166,6 @@ If this project helped you:
 
 Hi, I’m **Sai Hemanth Thogaruchesti**, a passionate Android & Flutter developer, tech enthusiast, and open-source contributor from 🇮🇳 India.
 
-* 📌 GitHub: [@Thogaruchesti-hemanth](https://github.com/Thogaruchesti-hemanth)
 * 💼 LinkedIn: [thogaruchesti-hemanth](https://www.linkedin.com/in/thogaruchesti-hemanth/)
 
 Let’s connect, collaborate, and build together! 🚀
