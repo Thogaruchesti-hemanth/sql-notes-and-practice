@@ -4,8 +4,6 @@ Welcome to **`sql-notes-and-practice`** — a complete, beginner-to-advanced SQL
 
 > 🔥 Learn. Practice. Master. One day at a time.
 
----
-
 ![GitHub stars](https://img.shields.io/github/stars/Thogaruchesti-hemanth/sql-notes-and-practice?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/Thogaruchesti-hemanth/sql-notes-and-practice?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Thogaruchesti-hemanth/sql-notes-and-practice?style=flat-square)
