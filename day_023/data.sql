@@ -1,0 +1,105 @@
+-- 📘 Day 23: Student Database
+-- ---------------------------
+-- Context: Managing a university student information system. 
+-- Focus today is on using GROUP BY, HAVING, and aggregate functions 
+-- to summarize and filter grouped data.
+
+-- 👇 Below is the structure and sample data for two tables:
+-- 1. students
+-- 2. marks
+
+-- ===================================================
+-- Table: students
+-- ===================================================
+-- | student_id | name             | department     | year_of_study | gender | age |
+-- |------------|------------------|----------------|----------------|--------|-----|
+-- | 101        | Aditi Sharma     | Computer Sci   | 2              | F      | 19  |
+-- | 102        | Rahul Mehta      | Electronics    | 3              | M      | 20  |
+-- | 103        | Priya Nair       | Mechanical     | 1              | F      | 18  |
+-- | 104        | Sameer Khan      | Computer Sci   | 3              | M      | 21  |
+-- | 105        | Neha Verma       | Civil          | 2              | F      | 19  |
+-- | 106        | Arjun Patel      | Electronics    | 4              | M      | 22  |
+-- | 107        | Tanya Desai      | Computer Sci   | 1              | F      | 18  |
+-- | 108        | Karan Malhotra   | Civil          | 3              | M      | 21  |
+-- | 109        | Isha Kapoor      | Mechanical     | 2              | F      | 20  |
+-- | 110        | Vikram Joshi     | Electronics    | 1              | M      | 18  |
+
+-- ===================================================
+-- Table: marks
+-- ===================================================
+-- | mark_id | student_id | subject       | marks_obtained | max_marks |
+-- |---------|------------|---------------|----------------|-----------|
+-- | 1       | 101        | DBMS          | 82             | 100       |
+-- | 2       | 101        | Mathematics   | 90             | 100       |
+-- | 3       | 102        | Networks      | 75             | 100       |
+-- | 4       | 103        | Thermodynamics| 68             | 100       |
+-- | 5       | 104        | DBMS          | 88             | 100       |
+-- | 6       | 105        | Structures    | 74             | 100       |
+-- | 7       | 106        | Signals       | 81             | 100       |
+-- | 8       | 107        | Programming   | 95             | 100       |
+-- | 9       | 108        | Surveying     | 70             | 100       |
+-- | 10      | 109        | Mechanics     | 65             | 100       |
+-- | 11      | 110        | Circuits      | 80             | 100       |
+-- | 12      | 102        | Signals       | 79             | 100       |
+-- | 13      | 104        | OS            | 84             | 100       |
+-- | 14      | 101        | OS            | 91             | 100       |
+-- | 15      | 107        | DBMS          | 87             | 100       |
+-- | 16      | 108        | Structures    | 78             | 100       |
+-- | 17      | 106        | Networks      | 73             | 100       |
+-- | 18      | 103        | Mechanics     | 70             | 100       |
+-- | 19      | 109        | Thermodynamics| 72             | 100       |
+-- | 20      | 110        | Signals       | 82             | 100       |
+
+-- 📝 Instructions:
+-- Write SQL statements manually for:
+-- - Creating the above tables (`CREATE TABLE`)
+-- - Inserting the above data (`INSERT INTO`)
+-- - Practicing `GROUP BY`, `HAVING`, and aggregates
+
+-- 📚 PRACTICE QUESTIONS (35):
+-- ---------------------------
+
+-- 🔹 GROUP BY with COUNT/SUM/AVG (Q1–Q15)
+-- 1. Count the number of students in each department.
+-- 2. Find the average age of students in each year_of_study.
+-- 3. Calculate total marks obtained by each student.
+-- 4. Find average marks scored in each subject.
+-- 5. Count how many subjects each student has marks in.
+-- 6. List total number of male and female students.
+-- 7. Find departments with more than 2 students.
+-- 8. Show total marks obtained in each subject.
+-- 9. Get average marks by gender.
+-- 10. List total and average marks per department.
+-- 11. Count number of students in each year_of_study.
+-- 12. Find average marks per subject in the Electronics department.
+-- 13. List subjects with average marks above 80.
+-- 14. Count how many students scored more than 85 in any subject.
+-- 15. Show the highest and lowest marks scored in each subject.
+
+-- 🔹 HAVING with Aggregates (Q16–Q25)
+-- 16. List departments where average student age is less than 20.
+-- 17. Show subjects where total marks scored is greater than 150.
+-- 18. Find students whose average marks are above 85.
+-- 19. List students who appeared in more than 2 subjects.
+-- 20. Show departments where female students are more than male.
+-- 21. List subjects with fewer than 3 students taking them.
+-- 22. Find departments with average marks greater than 80.
+-- 23. List students with total marks less than 200.
+-- 24. Show genders with average marks greater than 75.
+-- 25. Find students who scored below 70 in any subject.
+
+-- 🔹 Advanced Grouping and Filters (Q26–Q35)
+-- 26. Find top 3 students with highest total marks.
+-- 27. Show subject-wise rank of students by marks.
+-- 28. List students who scored above average in DBMS.
+-- 29. Find average marks per department per subject.
+-- 30. List each student’s best performing subject.
+-- 31. Show total number of unique subjects attempted by each student.
+-- 32. List all subjects attempted by students in year 3.
+-- 33. Get student-wise marks as percentage for each subject.
+-- 34. Show the department with the highest scoring student.
+-- 35. Show how many students from each department scored above 80 in any subject.
+
+-- ✅ End of Day 23 Practice
+-- Tomorrow we will dive into "Day 24: Library Management" 
+-- to explore more complex database relationships and constraints.
