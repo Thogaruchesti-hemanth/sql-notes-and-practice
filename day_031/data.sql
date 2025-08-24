@@ -1,0 +1,107 @@
+-- Day 31: PostgreSQL-specific features
+-- -------------------------------------
+-- Topics Covered:
+-- - Data types: SERIAL, UUID, JSON, JSONB, ARRAY, MONEY
+-- - Table inheritance
+-- - PostgreSQL functions and operators (e.g., `->`, `->>`, `#>>`)
+-- - UPSERT (ON CONFLICT)
+-- - Common Table Expressions (CTEs)
+-- - Window Functions
+-- - `RETURNING` clause
+-- - Case-insensitive text (`citext`), domains
+-- - Indexing specific to PostgreSQL (GIN, GiST)
+-- - LATERAL joins
+
+-- Context:
+-- In this scenario, we are managing a software product company that sells SaaS subscriptions to
+-- customers. The system tracks users, their profiles, roles, subscription plans, and system logs.
+-- We are particularly leveraging PostgreSQL's advanced data types and features to build a robust system.
+
+-- TABLE: users
+-- -------------------------------------------------------------------------------
+-- | user_id (UUID) | username (TEXT) | email (CITEXT)     | roles (TEXT[])      |
+-- -------------------------------------------------------------------------------
+-- | 109e9a...      | alice_dev       | alice@company.com  | {admin,dev}         |
+-- | 210a0b...      | bob_support     | bob@company.com    | {support}           |
+-- | 320a8f...      | charlie_viewer  | charlie@company.com| {viewer, analyst}   |
+-- -------------------------------------------------------------------------------
+
+-- TABLE: profiles
+-- -------------------------------------------------------------------------------------------
+-- | user_id (UUID) | full_name (TEXT) | metadata (JSONB)                                   |
+-- -------------------------------------------------------------------------------------------
+-- | 109e9a...      | Alice Johnson    | {"location": "NY", "experience": 5}                |
+-- | 210a0b...      | Bob Smith        | {"location": "LA", "team": "Support"}              |
+-- | 320a8f...      | Charlie Dane     | {"location": "SF", "projects": ["alpha", "beta"]}  |
+-- -------------------------------------------------------------------------------------------
+
+-- TABLE: plans
+-- --------------------------------------------------------------------------------------------------
+-- | plan_id (SERIAL) | plan_name (TEXT) | features (TEXT[])         | price (MONEY) | active (BOOLEAN) |
+-- --------------------------------------------------------------------------------------------------
+-- | 1                | Basic            | {email_support}           | $9.99         | true             |
+-- | 2                | Pro              | {email_support, analytics}| $19.99        | true             |
+-- | 3                | Enterprise       | {priority_support}        | $49.99        | false            |
+-- --------------------------------------------------------------------------------------------------
+
+-- TABLE: subscriptions
+-- -----------------------------------------------------------------------------------------------------------
+-- | sub_id (SERIAL) | user_id (UUID) | plan_id (INT) | start_date (DATE) | status (TEXT) | notes (TEXT)     |
+-- -----------------------------------------------------------------------------------------------------------
+-- | 1              | 109e9a...      | 2             | 2023-01-01        | active        | NULL             |
+-- | 2              | 210a0b...      | 1             | 2023-05-10        | canceled      | Switched to Pro  |
+-- | 3              | 320a8f...      | 1             | 2023-07-15        | active        | NULL             |
+-- -----------------------------------------------------------------------------------------------------------
+
+-- TABLE: system_logs
+-- --------------------------------------------------------------------------------------------------------------
+-- | log_id (SERIAL) | user_id (UUID) | timestamp (TIMESTAMP)     | event (JSON)                               |
+-- --------------------------------------------------------------------------------------------------------------
+-- | 1              | 109e9a...      | 2023-08-01 09:00:00        | {"action": "login", "ip": "192.168.1.1"}   |
+-- | 2              | 109e9a...      | 2023-08-01 10:30:00        | {"action": "update", "field": "email"}     |
+-- | 3              | 210a0b...      | 2023-08-01 11:00:00        | {"action": "logout"}                       |
+-- --------------------------------------------------------------------------------------------------------------
+
+-- 35 PRACTICE QUESTIONS
+-- ----------------------
+
+-- 1. Retrieve all users whose email domain is 'company.com' using CITEXT comparison.
+-- 2. Get the full names and usernames of users whose metadata contains the location 'NY'.
+-- 3. List all plans that are currently active and cost more than $15 using the MONEY data type.
+-- 4. Extract the 'location' field from the metadata JSONB column for all users.
+-- 5. Get all users who have the role 'support' using ARRAY operations.
+-- 6. Count how many roles each user has using array length.
+-- 7. List all features offered in the 'Pro' plan using UNNEST on ARRAY.
+-- 8. Write a query that uses a CTE to find users with active subscriptions only.
+-- 9. Use a window function to rank users based on subscription start_date.
+-- 10. Show the difference between `->` and `->>` on the `metadata` field.
+-- 11. Get user_ids from system_logs where the event contains 'action' = 'login'.
+-- 12. Use `jsonb_each_text()` to flatten metadata for each profile.
+-- 13. Use LATERAL join to extract all project names from metadata in profiles.
+-- 14. Create a domain for positive_money and apply a check > 0 (write only the SQL comment).
+-- 15. Simulate an UPSERT for a subscription where conflict is on (user_id, plan_id).
+-- 16. Use RETURNING clause to fetch sub_id after inserting a new subscription.
+-- 17. Show how GIN indexing benefits when querying JSONB fields (explain only).
+-- 18. Use `jsonb_path_exists()` to check if metadata has key `projects`.
+-- 19. Show the logs where the JSON field includes 'update' action.
+-- 20. Use `jsonb_array_elements()` to extract project names for Charlie.
+-- 21. Count how many users have more than one role.
+-- 22. Find users with no subscription records using LEFT JOIN.
+-- 23. Use `jsonb_set()` to update a field in metadata (simulate).
+-- 24. Retrieve all logs in the last 24 hours using `CURRENT_TIMESTAMP`.
+-- 25. Display all plans and calculate yearly cost using a CTE.
+-- 26. Use ROW_NUMBER() to assign log index per user.
+-- 27. Extract and flatten all JSON keys from the system_logs table.
+-- 28. Simulate filtering users who don’t have 'admin' in their roles array.
+-- 29. Count number of logs per user and sort by most active users.
+-- 30. Simulate a CREATE TABLE ... INHERITS structure for audit_logs inheriting system_logs.
+-- 31. Explain the difference between JSON and JSONB in PostgreSQL (write answer in comment).
+-- 32. Write a query using EXISTS to check if a user has at least one subscription.
+-- 33. Create a materialized view to cache user-plan mappings (write only in comment).
+-- 34. Filter users with a role list of exactly 2 items.
+-- 35. Use CTE and Window Function together to find most recent subscription per user.
+
+-- Tomorrow's Topic:
+-- ------------------------------------------
+-- Day 32: MySQL-specific features
+-- Topics will include AUTO_INCREMENT, ENUM, SET, FULLTEXT index, REPLACE INTO, and more.
