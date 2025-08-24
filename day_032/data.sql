@@ -1,0 +1,91 @@
+-- Day 32: MySQL-specific features
+-- Main Topics: ENUM, SET, AUTO_INCREMENT, LIMIT, REPLACE, MySQL functions, LAST_INSERT_ID, ON DUPLICATE KEY UPDATE, GROUP_CONCAT, SHOW/DESCRIBE, IF/CASE/FIELD, MySQL engine features
+
+-- Context: Managing a system that handles users and their subscription preferences on a SaaS platform.
+
+-- ===============================
+-- Table: users
+-- ===============================
+-- | Column Name     | Data Type         | Description                        |
+-- |-----------------|-------------------|------------------------------------|
+-- | user_id         | INT AUTO_INCREMENT| Unique ID for each user (PK)       |
+-- | full_name       | VARCHAR(100)      | Full name of the user              |
+-- | email           | VARCHAR(100)      | User's email address (UNIQUE)      |
+-- | status          | ENUM('active','inactive','banned') | Account status |
+-- | created_at      | DATETIME          | Timestamp when user was created    |
+-- | country         | VARCHAR(50)       | Country of the user                |
+-- | role            | SET('admin','editor','viewer')     | Roles assigned to user |
+
+-- Sample Data:
+-- | user_id | full_name      | email                  | status   | created_at          | country  | role               |
+-- |---------|----------------|------------------------|----------|---------------------|----------|--------------------|
+-- | 1       | Alice Johnson  | alice@example.com      | active   | 2024-11-01 09:00:00 | USA      | 'admin,editor'     |
+-- | 2       | Bob Smith      | bob@example.com        | banned   | 2024-12-15 14:32:00 | Canada   | 'viewer'           |
+-- | 3       | Carol Thomas   | carol@example.com      | active   | 2025-01-10 18:45:00 | India    | 'editor'           |
+-- | 4       | David Lee      | david@example.com      | inactive | 2025-02-08 11:12:00 | UK       | 'viewer,editor'    |
+-- | 5       | Emma Watson    | emma@example.com       | active   | 2025-02-25 13:22:00 | Australia| 'admin'            |
+
+-- ===============================
+-- Table: subscriptions
+-- ===============================
+-- | Column Name     | Data Type         | Description                             |
+-- |-----------------|-------------------|-----------------------------------------|
+-- | subscription_id | INT AUTO_INCREMENT| Unique ID for each subscription (PK)    |
+-- | user_id         | INT               | FK to users.user_id                     |
+-- | plan            | ENUM('free','basic','premium')   | Subscription plan |
+-- | start_date      | DATE              | Subscription start date                 |
+-- | end_date        | DATE              | Subscription end date                   |
+-- | status          | ENUM('active','expired','cancelled') | Subscription status |
+
+-- Sample Data:
+-- | subscription_id | user_id | plan     | start_date | end_date   | status     |
+-- |-----------------|---------|----------|------------|------------|------------|
+-- | 1               | 1       | premium  | 2025-01-01 | 2026-01-01 | active     |
+-- | 2               | 2       | basic    | 2024-11-01 | 2025-11-01 | cancelled  |
+-- | 3               | 3       | basic    | 2025-02-01 | 2026-02-01 | active     |
+-- | 4               | 4       | free     | 2025-03-01 | 2026-03-01 | expired    |
+-- | 5               | 5       | premium  | 2025-03-15 | 2026-03-15 | active     |
+
+-- ====================================
+-- 35 Practice Questions - Day 32
+-- ====================================
+
+-- 1. List all users with status = 'active'.
+-- 2. Show all banned users using the ENUM field.
+-- 3. Display only the first 2 users ordered by created_at.
+-- 4. Fetch the next 2 users after skipping the first 2 (pagination).
+-- 5. Find users who have both 'admin' and 'editor' roles.
+-- 6. List all users who are either 'viewer' or 'editor' (SET contains either).
+-- 7. Count how many users have each unique SET combination of roles.
+-- 8. Show all subscription plans with 'active' status.
+-- 9. Replace a subscription record with same primary key but new plan (explain REPLACE).
+-- 10. Write a query to show the most recent user using `ORDER BY` and `LIMIT`.
+-- 11. Use `FIELD()` to rank user statuses: 'active' > 'inactive' > 'banned'.
+-- 12. Use `ELT()` and `FIELD()` to return a label for the subscription plan priority.
+-- 13. Show users and use `IF()` to return 'Yes' if user is from India, else 'No'.
+-- 14. Return the email of the user who was most recently added.
+-- 15. Simulate `INSERT ... ON DUPLICATE KEY UPDATE` behavior.
+-- 16. Use `LAST_INSERT_ID()` in a sample scenario with inserting a new user.
+-- 17. Use `GROUP_CONCAT()` to display all roles for each user in one row.
+-- 18. Display how many users exist for each `status` using ENUM.
+-- 19. Show the number of users from each country.
+-- 20. Use `SHOW TABLES` to list all tables in the database.
+-- 21. Use `DESCRIBE users` to show metadata for that table.
+-- 22. Explain how `EXPLAIN` is used to analyze query performance.
+-- 23. Use `CASE` to return subscription state: 'expired', 'ending soon', or 'active'.
+-- 24. Add a new ENUM value 'paused' to the `subscriptions.status` column (ALTER).
+-- 25. Change the default value of user `status` to 'inactive' (ALTER TABLE).
+-- 26. Rename table `subscriptions` to `user_subscriptions`.
+-- 27. Explain differences between InnoDB and MyISAM using these tables.
+-- 28. Create a column with `CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci` and explain why.
+-- 29. Write a query using user-defined variables to number the users row-by-row.
+-- 30. Write a query to fetch users who do not have any subscriptions.
+-- 31. Explain how ENUM is stored internally and how it impacts indexing.
+-- 32. What happens if a value not listed in ENUM is inserted?
+-- 33. Compare `SET` vs multiple boolean fields in terms of storage and query complexity.
+-- 34. What are the limitations of using `GROUP_CONCAT()`?
+-- 35. Use MySQL's date functions to calculate how many days remain for each active subscription.
+
+-- ==================================================
+-- Tomorrow’s Topic: Day 33 – Window Functions
+-- ==================================================
