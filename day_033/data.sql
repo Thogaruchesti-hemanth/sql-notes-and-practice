@@ -1,0 +1,83 @@
+-- Day 33: Window Functions
+-- -------------------------------------------------------------
+-- Context: A sales company tracks employee sales and bonus data.
+--          We have two main tables: employees and sales.
+--          The goal is to analyze sales performance, ranking,
+--          trends, and comparisons using SQL Window Functions.
+-- -------------------------------------------------------------
+
+-- Table: employees
+-- -------------------------------------------------------------
+-- | emp_id | name         | department   | hire_date  | salary  |
+-- -------------------------------------------------------------
+-- |   101  | Alice Smith  | Electronics  | 2019-03-12 | 65000   |
+-- |   102  | Bob Jones    | Electronics  | 2020-06-24 | 62000   |
+-- |   103  | Carol White  | Furniture    | 2018-08-09 | 70000   |
+-- |   104  | David Black  | Electronics  | 2021-01-15 | 58000   |
+-- |   105  | Eva Brown    | Furniture    | 2019-11-23 | 68000   |
+-- |   106  | Frank Green  | Grocery      | 2022-02-01 | 54000   |
+-- |   107  | Grace Hall   | Grocery      | 2021-09-14 | 56000   |
+-- |   108  | Henry Adams  | Furniture    | 2020-03-05 | 71000   |
+-- -------------------------------------------------------------
+
+-- Table: sales
+-- ------------------------------------------------------------------------
+-- | sale_id | emp_id | sale_amount | sale_date  | region     | bonus_pct |
+-- ------------------------------------------------------------------------
+-- |   1     | 101    |   5000      | 2024-01-15 | North      | 0.05      |
+-- |   2     | 102    |   3000      | 2024-01-17 | South      | 0.04      |
+-- |   3     | 103    |   7000      | 2024-01-20 | East       | 0.06      |
+-- |   4     | 104    |   4500      | 2024-01-25 | North      | 0.05      |
+-- |   5     | 105    |   6200      | 2024-02-03 | South      | 0.07      |
+-- |   6     | 106    |   2000      | 2024-02-07 | West       | 0.03      |
+-- |   7     | 107    |   2500      | 2024-02-10 | North      | 0.04      |
+-- |   8     | 108    |   8000      | 2024-02-14 | East       | 0.06      |
+-- |   9     | 101    |   5500      | 2024-02-18 | North      | 0.05      |
+-- |   10    | 102    |   3200      | 2024-02-21 | South      | 0.04      |
+-- |   11    | 103    |   6800      | 2024-03-01 | East       | 0.06      |
+-- |   12    | 104    |   4800      | 2024-03-04 | North      | 0.05      |
+-- |   13    | 105    |   6300      | 2024-03-09 | South      | 0.07      |
+-- |   14    | 106    |   2300      | 2024-03-14 | West       | 0.03      |
+-- |   15    | 107    |   2700      | 2024-03-16 | North      | 0.04      |
+-- |   16    | 108    |   7900      | 2024-03-21 | East       | 0.06      |
+-- ------------------------------------------------------------------------
+
+-- Practice Questions (35)
+-- -------------------------------------------------------------
+-- 1. Assign a row number to each sale ordered by sale_date.
+-- 2. Rank employees based on total sale_amount in descending order.
+-- 3. Partition the sales by region and assign a row number within each.
+-- 4. Use RANK() to show sales ranking within each region.
+-- 5. Use DENSE_RANK() to show rankings for employees by region.
+-- 6. Use NTILE(4) to divide the sales into 4 performance quartiles.
+-- 7. Use LEAD() to find the next sale_amount per employee.
+-- 8. Use LAG() to find the previous sale_date per employee.
+-- 9. Show the first sale amount made by each employee using FIRST_VALUE().
+-- 10. Show the most recent sale amount made by each employee using LAST_VALUE().
+-- 11. For each employee, calculate running total of sales ordered by sale_date.
+-- 12. For each region, calculate cumulative sale_amount over time.
+-- 13. For each department, rank employees by salary using RANK().
+-- 14. Calculate the average sale_amount per region and show the difference from each sale.
+-- 15. Find the employee whose current sale is higher than their previous sale.
+-- 16. Compare each sale's bonus_pct with the previous one in the same region.
+-- 17. Show how many employees have increasing sale trends month over month.
+-- 18. For each employee, show all sales and the max sale they’ve ever made.
+-- 19. Use ROW_NUMBER() to get top 2 sales per region.
+-- 20. For each employee, compute difference between current and previous sale_amount.
+-- 21. Get all sales where the current bonus_pct is greater than the previous one.
+-- 22. Use NTILE to split all employees into 3 salary bands.
+-- 23. Identify employees whose LAST_VALUE of sale is above the regional average.
+-- 24. Use LAG to find employees who had a decrease in sales compared to the previous one.
+-- 25. Show total sales so far (cumulative sum) for each department.
+-- 26. Get the sale with the highest bonus_pct per employee.
+-- 27. Use window functions to find duplicate sales by amount within region.
+-- 28. Use LEAD() to show sale gap (days) between two consecutive sales.
+-- 29. Calculate % change in sale_amount between current and previous sale per employee.
+-- 30. Show the rank of each sale per department based on employee salary.
+-- 31. For each sale, calculate how far it is from the average of that employee’s sales.
+-- 32. For each department, find the first employee hired using FIRST_VALUE().
+-- 33. Show department-wise running total of salaries ordered by hire_date.
+-- 34. Identify employees who had two sales in a row with increasing bonus_pct.
+-- 35. Show the first, previous, current, next, and last sale amount per employee.
+
+-- End of Day 33: Window Functions
