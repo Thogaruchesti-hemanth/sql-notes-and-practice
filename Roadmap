@@ -5,7 +5,9 @@
 2. Need to learn the basics to write queries
     i. Datatypes
    ii. Constraints
+
 3. learn 'CREATE TABLE'.
+
 4. Learn 'ALTER' and 'MODIFY'.
     1. Change the DataType of a particular column.
     2. Change the Column Size (example: - length of the characters allowed).
@@ -13,5 +15,6 @@
     4. Add, Remove and Change the DEFAULT value.
     5. Change column position. ( like roll_no, name --> name, roll_no)
     6. Rename Column name. 
+
 
     
