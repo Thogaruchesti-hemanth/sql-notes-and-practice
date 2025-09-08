@@ -1,8 +1,8 @@
--- 📘 Day 5: UPDATE, DELETE
--- ------------------------
+-- 📘 Day 5 Extended: UPDATE, DELETE, ALTER, DROP, TRUNCATE
+-- --------------------------------------------------------
 -- Context: Library system managing books and members.
--- Today’s practice focuses on performing SQL UPDATE and DELETE operations
--- — modifying existing records and removing unwanted data.
+-- Today’s practice focuses on performing SQL UPDATE, DELETE,
+-- and also table structure modifications (ALTER, DROP, TRUNCATE).
 
 -- 👇 Below is the structure and sample data for two tables:
 -- 1. members
@@ -39,9 +39,9 @@
 -- Write SQL statements manually for:
 -- - Creating the above tables (`CREATE TABLE`)
 -- - Inserting the above data (`INSERT INTO`)
--- - Practicing `UPDATE` and `DELETE` statements
+-- - Practicing `UPDATE`, `DELETE`, `ALTER`, `DROP`, `TRUNCATE`
 
--- 📚 PRACTICE QUESTIONS (35):
+-- 📚 PRACTICE QUESTIONS (50):
 -- ---------------------------
 
 -- 🔹 UPDATE Basics (Q1–Q10)
@@ -87,7 +87,29 @@
 -- 34. Delete members who have both NULL email and fines_due > 5.
 -- 35. Remove books with 'Work' in the title.
 
--- ✅ End of Day 5 Practice
--- Remember to test your `UPDATE` and `DELETE` queries carefully.
--- Use `SELECT` before `DELETE` to avoid accidental data loss.
--- In the next session, we will explore constraints and transactions.
+-- 🔹 ALTER TABLE (Q36–Q42)
+-- 36. Add a new column `phone` (VARCHAR(15)) to the `members` table.
+-- 37. Add a new column `published_year` (INT) to the `books` table.
+-- 38. Modify the `membership_type` column to increase its size to VARCHAR(50).
+-- 39. Rename column `available` in `books` to `is_available`.
+-- 40. Set default value of `fines_due` as 0 in `members`.
+-- 41. Remove the `phone` column from `members`.
+-- 42. Change datatype of `issued_to` column in `books` from INT to VARCHAR(10).
+
+-- 🔹 TRUNCATE TABLE (Q43–Q46)
+-- 43. Truncate the `books` table to remove all book records.
+-- 44. Truncate the `members` table to reset data while keeping structure.
+-- 45. Explain the difference between DELETE and TRUNCATE using `books`.
+-- 46. Re-insert sample data after truncating the `members` table.
+
+-- 🔹 DROP TABLE / COLUMN (Q47–Q50)
+-- 47. Drop the `books` table completely from the database.
+-- 48. Drop the `members` table permanently.
+-- 49. Drop the `email` column from the `members` table.
+-- 50. Drop the entire database `library_system`.
+
+-- ✅ End of Day 5 Extended Practice
+-- Remember to test carefully:
+-- - Use SELECT before DELETE.
+-- - ALTER/DROP/TRUNCATE are irreversible, use with caution.
+-- Next session will cover: Constraints, Transactions, and Rollbacks.
