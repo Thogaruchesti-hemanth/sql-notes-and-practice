@@ -30,7 +30,7 @@ Welcome to **`sql-notes-and-practice`** — a complete, beginner-to-advanced SQL
 | Day 2 | `WHERE`, `AND`, `OR`, `NOT` |
 | Day 3 | `IN`, `BETWEEN`, `LIKE`, `IS NULL` |
 | Day 4 | `ORDER BY`, `LIMIT`, `OFFSET` |
-| Day 5 | `UPDATE`, `DELETE` |
+| Day 5 | `UPDATE`, `DELETE`,`DROP`,`ALTER`,`TRUNCATE` |
 | Day 6 | `DISTINCT`, `COUNT`, `MIN`, `MAX`, `AVG`, `SUM` |
 | Day 7 | Review + Practice Set |
 
